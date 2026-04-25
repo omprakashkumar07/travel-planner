@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Set your travel preferences — style, budget range, and interests for personalized recommendations.">
+  <title>Preferences — TravelPlanner</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo"><div class="nav-logo-icon">✈️</div><div class="nav-logo-text"><span>Travel</span>Planner</div></a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html">Home</a><a href="destinations.html">Destinations</a><a href="budget.html">Budget</a>
+        <a href="chat.html">AI Chat</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+        <a href="preferences.html" class="active">Preferences</a><a href="budget.html" class="nav-cta">Plan Trip →</a>
+      </div>
+      <div class="nav-hamburger" id="nav-hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="page-hero" style="min-height: 35vh;">
+    <div class="page-hero-content">
+      <h1>⚙️ <span class="gradient-text">Your Preferences</span></h1>
+      <p>Customize your travel profile for personalized recommendations and itineraries.</p>
+    </div>
+  </section>
+
+  <!-- Preferences -->
+  <section class="pref-section">
+    <div class="container">
+      <div class="pref-panel glass-panel reveal">
+
+        <!-- Travel Style -->
+        <div class="pref-group">
+          <h3>🧳 Travel Style</h3>
+          <div class="style-options">
+            <div class="style-option" data-style="adventure">
+              <span class="style-emoji">🏔️</span>
+              <h4>Adventure</h4>
+              <p>Trekking, sports, outdoors</p>
+            </div>
+            <div class="style-option" data-style="relaxation">
+              <span class="style-emoji">🧘</span>
+              <h4>Relaxation</h4>
+              <p>Beaches, spas, slow travel</p>
+            </div>
+            <div class="style-option" data-style="cultural">
+              <span class="style-emoji">🏛️</span>
+              <h4>Cultural</h4>
+              <p>Heritage, museums, history</p>
+            </div>
+            <div class="style-option" data-style="foodie">
+              <span class="style-emoji">🍛</span>
+              <h4>Foodie</h4>
+              <p>Local cuisine, street food</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Budget Preference -->
+        <div class="pref-group">
+          <h3>💰 Budget Range</h3>
+          <div class="budget-options">
+            <div class="budget-option" data-budget="budget">
+              <h4>Budget</h4>
+              <p>₹5K — ₹10K</p>
+            </div>
+            <div class="budget-option" data-budget="mid-range">
+              <h4>Mid-Range</h4>
+              <p>₹10K — ₹25K</p>
+            </div>
+            <div class="budget-option" data-budget="luxury">
+              <h4>Luxury</h4>
+              <p>₹25K+</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interests -->
+        <div class="pref-group">
+          <h3>✨ Interests</h3>
+          <div class="interest-chips">
+            <span class="interest-chip" data-interest="beaches">🏖️ Beaches</span>
+            <span class="interest-chip" data-interest="mountains">🏔️ Mountains</span>
+            <span class="interest-chip" data-interest="heritage">🏰 Heritage</span>
+            <span class="interest-chip" data-interest="nightlife">🎉 Nightlife</span>
+            <span class="interest-chip" data-interest="food">🍛 Food</span>
+            <span class="interest-chip" data-interest="shopping">🛍️ Shopping</span>
+            <span class="interest-chip" data-interest="wildlife">🐘 Wildlife</span>
+            <span class="interest-chip" data-interest="photography">📸 Photography</span>
+            <span class="interest-chip" data-interest="spiritual">🕉️ Spiritual</span>
+            <span class="interest-chip" data-interest="water-sports">🌊 Water Sports</span>
+            <span class="interest-chip" data-interest="trekking">🥾 Trekking</span>
+            <span class="interest-chip" data-interest="wellness">🧘 Wellness</span>
+          </div>
+        </div>
+
+        <!-- Save -->
+        <div class="pref-save">
+          <button class="btn btn-primary" id="save-prefs">Save Preferences ✨</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><h3>✈️ <span>Travel</span>Planner</h3><p>Your intelligent travel companion.</p><div class="footer-socials"><a href="#">🐦</a><a href="#">📸</a><a href="#">💻</a></div></div>
+        <div class="footer-column"><h4>Destinations</h4><a href="goa.html">Goa</a><a href="manali.html">Manali</a><a href="jaipur.html">Jaipur</a><a href="kerala.html">Kerala</a></div>
+        <div class="footer-column"><h4>Features</h4><a href="budget.html">Budget Planner</a><a href="chat.html">AI Chat</a><a href="preferences.html">Preferences</a></div>
+        <div class="footer-column"><h4>Company</h4><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 TravelPlanner</span><span>HTML • CSS • JS</span></div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/preferences.js"></script>
+</body>
+</html>

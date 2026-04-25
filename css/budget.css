@@ -1,0 +1,80 @@
+/* ═══════════════════════════════════════════════
+   BUDGET PLANNER PAGE
+   ═══════════════════════════════════════════════ */
+
+.budget-section { padding: 60px 0 var(--section-padding); position: relative; z-index: 1; }
+
+.budget-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+
+/* Form Panel */
+.budget-form-panel { padding: 40px; }
+.budget-form-panel h3 { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 600; margin-bottom: 8px; }
+.budget-form-panel > p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 30px; }
+
+.selected-dest { display: flex; align-items: center; gap: 12px; padding: 16px; background: rgba(255,107,107,0.08); border: 1px solid rgba(255,107,107,0.15); border-radius: var(--radius-md); margin-bottom: 28px; }
+.selected-dest .dest-emoji { font-size: 2rem; }
+.selected-dest .dest-info h4 { font-family: var(--font-heading); font-weight: 600; font-size: 1.05rem; }
+.selected-dest .dest-info span { font-size: 0.8rem; color: var(--text-muted); }
+.selected-dest .change-btn { margin-left: auto; font-size: 0.85rem; color: var(--accent-coral); cursor: pointer; }
+
+/* Slider */
+.slider-group { margin-bottom: 28px; }
+.slider-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.slider-header label { font-size: 0.9rem; font-weight: 500; color: var(--text-secondary); }
+.slider-value { font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; color: var(--accent-coral); }
+
+input[type="range"] {
+  width: 100%; height: 6px; -webkit-appearance: none; appearance: none;
+  background: rgba(255,255,255,0.1); border-radius: 3px; outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--gradient-primary); cursor: pointer;
+  box-shadow: 0 0 10px rgba(255,107,107,0.4); border: 2px solid #fff;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: linear-gradient(135deg, #ff6b6b, #ffd93d); cursor: pointer;
+  box-shadow: 0 0 10px rgba(255,107,107,0.4); border: 2px solid #fff;
+}
+
+/* Budget Input */
+.budget-input-group { position: relative; margin-bottom: 28px; }
+.currency-symbol { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); font-size: 1.2rem; font-weight: 600; color: var(--accent-amber); }
+.budget-input-group .form-input { padding-left: 44px; font-size: 1.3rem; font-weight: 600; font-family: var(--font-heading); }
+
+/* Results Panel */
+.budget-results { padding: 40px; }
+.budget-results h3 { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 600; margin-bottom: 30px; }
+
+/* Donut Chart */
+.donut-container { position: relative; width: 200px; height: 200px; margin: 0 auto 30px; }
+.donut-chart { width: 200px; height: 200px; border-radius: 50%; position: relative; }
+.donut-center { position: absolute; inset: 40px; background: var(--bg-secondary); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.donut-center .amount { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; }
+.donut-center .label { font-size: 0.75rem; color: var(--text-muted); }
+
+/* Breakdown List */
+.breakdown-list { list-style: none; }
+.breakdown-item { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--border-subtle); }
+.breakdown-item:last-child { border-bottom: none; }
+.breakdown-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.breakdown-label { flex: 1; font-size: 0.9rem; }
+.breakdown-percent { font-size: 0.8rem; color: var(--text-muted); margin-right: 8px; }
+.breakdown-amount { font-family: var(--font-heading); font-weight: 600; font-size: 0.95rem; }
+
+.budget-cta { margin-top: 30px; text-align: center; }
+
+/* Per Day Stats */
+.per-day-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+.per-day-card { padding: 18px; text-align: center; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05); }
+.per-day-card h4 { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.per-day-card p { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; color: var(--accent-teal); }
+
+@media (max-width: 768px) {
+  .budget-layout { grid-template-columns: 1fr; }
+  .donut-container { width: 160px; height: 160px; }
+  .donut-chart { width: 160px; height: 160px; }
+  .donut-center { inset: 32px; }
+  .per-day-stats { grid-template-columns: 1fr; }
+}

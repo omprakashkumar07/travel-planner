@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Smart Travel Itinerary Planner — Plan your dream trip with AI-powered recommendations, budget tracking, and personalized itineraries for India's top destinations.">
+  <title>TravelPlanner — Smart Travel Itinerary Planner</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+  <!-- Background Orbs -->
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">✈️</div>
+        <div class="nav-logo-text"><span>Travel</span>Planner</div>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="pages/destinations.html">Destinations</a>
+        <a href="pages/budget.html">Budget</a>
+        <a href="pages/chat.html">AI Chat</a>
+        <a href="pages/about.html">About</a>
+        <a href="pages/contact.html">Contact</a>
+        <a href="pages/preferences.html">Preferences</a>
+        <a href="pages/login.html" class="nav-cta">Login ✨</a>
+      </div>
+      <div class="nav-hamburger" id="nav-hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="images/statue_of_liberty.png" alt="Statue of Liberty at sunset">
+    </div>
+    <div class="hero-particles">
+      <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+      <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+      <div class="particle"></div><div class="particle"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse"></span>
+          Stop guessing. Start packing.
+        </div>
+        <h1>Your next trip, <span class="gradient-text">planned in seconds</span>.</h1>
+        <p>Skip the hours of research. Tell us where you want to go and how much you want to spend, and we'll map out a realistic, day-by-day itinerary you can actually use.</p>
+        <div class="hero-buttons">
+          <a href="pages/destinations.html" class="btn btn-primary">See Destinations</a>
+          <a href="pages/budget.html" class="btn btn-outline">Build My Trip</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <h3>6+</h3>
+            <p>Destinations</p>
+          </div>
+          <div class="hero-stat">
+            <h3>1000+</h3>
+            <p>Trips Planned</p>
+          </div>
+          <div class="hero-stat">
+            <h3>4.9★</h3>
+            <p>User Rating</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-title reveal">
+        <div class="section-badge">✨ Why TravelPlanner</div>
+        <h2>Everything you need for a <span class="gradient-text">stress-free trip</span></h2>
+        <p>We handle the logistics so you can focus on enjoying the journey.</p>
+      </div>
+      <div class="features-grid stagger-children">
+        <div class="feature-card glass-panel">
+          <div class="feature-icon">🤖</div>
+          <h3>Personal Trip Advisor</h3>
+          <p>Tell us what you like, and we'll craft an itinerary that matches your travel style perfectly.</p>
+        </div>
+        <div class="feature-card glass-panel">
+          <div class="feature-icon">💰</div>
+          <h3>Clear Cost Breakdown</h3>
+          <p>No hidden surprises. See exactly how much your hotels, food, and activities will realistically cost.</p>
+        </div>
+        <div class="feature-card glass-panel">
+          <div class="feature-icon">📍</div>
+          <h3>Handpicked Guides</h3>
+          <p>Discover the best local spots, hidden gems, and must-see attractions without falling into tourist traps.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Destinations -->
+  <section class="destinations-preview" id="destinations-preview">
+    <div class="container">
+      <div class="section-title reveal">
+        <div class="section-badge">🗺️ Popular Picks</div>
+        <h2>Trending <span class="gradient-text">Destinations</span></h2>
+        <p>Explore the most loved destinations handpicked for unforgettable experiences.</p>
+      </div>
+      <div class="dest-strip stagger-children">
+        <a href="pages/bihar.html" class="dest-strip-card">
+          <img src="images/bihar.png" alt="Bihar Bodh Gaya" loading="lazy">
+          <div class="dest-strip-overlay">
+            <h3>Bihar</h3>
+            <span>Heritage & Spiritual →</span>
+          </div>
+        </a>
+        <a href="pages/goa.html" class="dest-strip-card">
+          <img src="images/goa.png" alt="Goa beaches" loading="lazy">
+          <div class="dest-strip-overlay">
+            <h3>Goa</h3>
+            <span>Beaches & Nightlife →</span>
+          </div>
+        </a>
+        <a href="pages/manali.html" class="dest-strip-card">
+          <img src="images/manali.png" alt="Manali mountains" loading="lazy">
+          <div class="dest-strip-overlay">
+            <h3>Manali</h3>
+            <span>Mountains & Adventure →</span>
+          </div>
+        </a>
+        <a href="pages/jaipur.html" class="dest-strip-card">
+          <img src="images/jaipur.png" alt="Jaipur forts" loading="lazy">
+          <div class="dest-strip-overlay">
+            <h3>Jaipur</h3>
+            <span>Heritage & Culture →</span>
+          </div>
+        </a>
+        <a href="pages/kerala.html" class="dest-strip-card">
+          <img src="images/kerala.png" alt="Kerala backwaters" loading="lazy">
+          <div class="dest-strip-overlay">
+            <h3>Kerala</h3>
+            <span>Backwaters & Nature →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section" id="cta">
+    <div class="container">
+      <div class="cta-card reveal">
+        <h2>Ready to <span class="gradient-text">pack your bags</span>?</h2>
+        <p>Take the stress out of travel planning. Set a budget, pick a spot, and get your custom itinerary instantly.</p>
+        <a href="pages/budget.html" class="btn btn-primary">Build My Trip</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>✈️ <span>Travel</span>Planner</h3>
+          <p>Your intelligent travel companion. Plan smarter, travel better, and create unforgettable memories across India.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Twitter">🐦</a>
+            <a href="#" aria-label="Instagram">📸</a>
+            <a href="#" aria-label="GitHub">💻</a>
+            <a href="#" aria-label="LinkedIn">💼</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Destinations</h4>
+          <a href="pages/goa.html">Goa</a>
+          <a href="pages/manali.html">Manali</a>
+          <a href="pages/jaipur.html">Jaipur</a>
+          <a href="pages/kerala.html">Kerala</a>
+        </div>
+        <div class="footer-column">
+          <h4>Features</h4>
+          <a href="pages/budget.html">Budget Planner</a>
+          <a href="pages/chat.html">AI Chat</a>
+          <a href="pages/preferences.html">Preferences</a>
+          <a href="pages/destinations.html">All Destinations</a>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="pages/about.html">About Us</a>
+          <a href="pages/contact.html">Contact</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 TravelPlanner. Built with ❤️ for smart travelers.</span>
+        <span>HTML • CSS • JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

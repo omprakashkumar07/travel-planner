@@ -1,0 +1,390 @@
+/* ═══════════════════════════════════════════════════════
+   AUTH-LAMP.CSS  — Premium cinematic lamp + escape button
+   ═══════════════════════════════════════════════════════ */
+
+/* ── BASE RESET & FONT ────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ── 1. FULLSCREEN DARK ROOM ──────────────────────────── */
+#lamp-scene {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, #1a1228 0%, #0c0a14 40%, #050508 100%);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 9000;
+  overflow: hidden;
+  cursor: default;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#lamp-scene.dissolving {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Ceiling texture */
+#lamp-scene::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 60px;
+  background: linear-gradient(180deg, #1e1830 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Wall texture scanlines */
+#lamp-scene::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px, transparent 3px,
+    rgba(255,255,255,0.008) 3px, rgba(255,255,255,0.008) 4px
+  );
+  pointer-events: none;
+}
+
+/* ── 2. STARS ─────────────────────────────────────────── */
+.ls-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.ls-star {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  animation: lsStar var(--dur,3s) ease-in-out infinite;
+  animation-delay: var(--del,0s);
+}
+@keyframes lsStar {
+  0%,100%{ opacity:.15; transform:scale(1);   }
+  50%    { opacity:.9;  transform:scale(1.6); }
+}
+
+/* ── 3. LAMP ASSEMBLY ─────────────────────────────────── */
+#ls-lamp-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0;
+  z-index: 10;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Wire from ceiling */
+#ls-wire {
+  width: 3px;
+  height: 80px;
+  background: linear-gradient(180deg, #4a3f5c 0%, #2e2640 100%);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Lamp cap */
+#ls-cap {
+  width: 54px; height: 14px;
+  background: linear-gradient(180deg, #5a4e3a 0%, #3d3326 100%);
+  border-radius: 6px 6px 2px 2px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  position: relative;
+  z-index: 2;
+}
+
+/* Shade */
+#ls-shade {
+  position: relative;
+  width: 0; height: 0;
+  border-left:  64px solid transparent;
+  border-right: 64px solid transparent;
+  border-top:   0;
+  border-bottom: 76px solid #c47a2e;
+  margin-top: -2px;
+  filter: drop-shadow(0 6px 0 rgba(0,0,0,0.4));
+  z-index: 2;
+  transition: filter 0.6s ease;
+}
+
+/* Inner shade highlight */
+#ls-shade::before {
+  content: '';
+  position: absolute;
+  left: -44px; top: 8px;
+  width: 88px; height: 2px;
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 18px 0 rgba(255,255,255,0.05), 0 36px 0 rgba(255,255,255,0.03);
+}
+
+/* Shade rim */
+#ls-shade::after {
+  content: '';
+  position: absolute;
+  left: -64px; top: 76px;
+  width: 128px; height: 8px;
+  background: linear-gradient(180deg, #a86728 0%, #7a4d20 100%);
+  border-radius: 0 0 4px 4px;
+}
+
+/* Bulb */
+#ls-bulb {
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  width: 26px; height: 30px;
+  background: radial-gradient(ellipse at 45% 30%, #fff8e1 0%, #ffe082 35%, #ffb300 65%, #e65100 100%);
+  border-radius: 50% 50% 55% 55% / 55% 55% 50% 50%;
+  z-index: 3;
+  box-shadow: none;
+  transition: box-shadow 0.8s ease, opacity 0.4s ease;
+}
+
+/* ON state — bulb glow */
+#lamp-scene.ls-on #ls-bulb {
+  box-shadow:
+    0 0 12px 4px  rgba(255,220,80, 0.95),
+    0 0 35px 12px rgba(255,180,40, 0.6),
+    0 0 80px 30px rgba(255,150,20, 0.3);
+  animation: lsFlicker 4s ease-in-out infinite 0.5s;
+}
+
+@keyframes lsFlicker {
+  0%,100%{ opacity:1;   }
+  45%    { opacity:0.96;}
+  46%    { opacity:0.88;}
+  47%    { opacity:0.96;}
+  70%    { opacity:1;   }
+  71%    { opacity:0.92;}
+  72%    { opacity:1;   }
+}
+
+/* ON state — shade glows */
+#lamp-scene.ls-on #ls-shade {
+  filter: drop-shadow(0 6px 28px rgba(255,200,50,0.65));
+}
+
+/* ── 4. LIGHT CONE ────────────────────────────────────── */
+#ls-cone {
+  position: absolute;
+  top: 170px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left:  220px solid transparent;
+  border-right: 220px solid transparent;
+  border-top:   380px solid transparent;
+  pointer-events: none;
+  z-index: 1;
+  transition: border-top-color 1s ease;
+}
+#lamp-scene.ls-on #ls-cone {
+  border-top-color: rgba(255,200,60,0.055);
+}
+
+/* Floor glow */
+#ls-floor-glow {
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 700px; height: 200px;
+  background: radial-gradient(ellipse at 50% 100%, rgba(255,200,60,0) 0%, transparent 70%);
+  pointer-events: none;
+  transition: background 1.2s ease;
+  z-index: 1;
+}
+#lamp-scene.ls-on #ls-floor-glow {
+  background: radial-gradient(ellipse at 50% 100%, rgba(255,200,60,0.12) 0%, transparent 70%);
+}
+
+/* Room ambient glow */
+#ls-ambient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 600px 400px at 50% 180px, rgba(255,200,50,0) 0%, transparent 100%);
+  pointer-events: none;
+  transition: background 1s ease;
+  z-index: 1;
+}
+#lamp-scene.ls-on #ls-ambient {
+  background: radial-gradient(ellipse 600px 400px at 50% 180px, rgba(255,200,50,0.13) 0%, transparent 65%);
+}
+
+/* ── 5. ROPE / CORD ───────────────────────────────────── */
+#ls-rope-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: grab;
+  position: relative;
+  z-index: 20;
+  touch-action: none;
+}
+#ls-rope-wrap:active { cursor: grabbing; }
+
+#ls-rope {
+  width: 5px;
+  height: 110px;
+  background: repeating-linear-gradient(
+    180deg,
+    #d4a85a 0px,  #b8893e 6px,
+    #e8c47a 6px,  #c8a050 12px,
+    #d4a85a 12px
+  );
+  border-radius: 3px;
+  transform-origin: top center;
+  transition: height 0.12s ease-out, transform 0.12s ease-out;
+  will-change: height, transform;
+}
+
+#ls-rope-knot {
+  width: 18px; height: 18px;
+  background: radial-gradient(circle at 40% 35%, #e8c47a, #8a6020);
+  border-radius: 50%;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.6), inset 0 1px 2px rgba(255,255,255,0.15);
+  transition: transform 0.15s ease;
+  cursor: grab;
+}
+#ls-rope-knot:hover { transform: scale(1.1); }
+
+/* ── 6. HINT ──────────────────────────────────────────── */
+#ls-hint {
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.32);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  font-weight: 400;
+  white-space: nowrap;
+  animation: lsHintPulse 2.8s ease-in-out infinite;
+  z-index: 20;
+  pointer-events: none;
+}
+@keyframes lsHintPulse {
+  0%,100%{ opacity:.32; }
+  50%    { opacity:.75; }
+}
+
+/* ── 7. AUTH FORM (hidden until lamp on) ──────────────── */
+/* JS sets display:none initially, then removes it on lamp trigger.
+   These rules handle the fade-in transition once visible. */
+.auth-page {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1),
+              transform 0.9s cubic-bezier(0.22,1,0.36,1);
+}
+.auth-page.ls-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── 8. ESCAPE BUTTON SYSTEM ──────────────────────────── */
+
+/* The submit button in escape-mode is position:fixed on viewport */
+.auth-submit.ls-escape-mode {
+  position: fixed !important;
+  z-index: 9999;
+  transition: left 0.38s cubic-bezier(0.34,1.56,0.64,1),
+              top  0.38s cubic-bezier(0.34,1.56,0.64,1),
+              transform 0.38s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow 0.2s ease;
+}
+
+/* Wrapper for the submit area */
+.ls-btn-wrapper {
+  position: relative;
+  min-height: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Tooltip bubble */
+.ls-tooltip {
+  position: fixed;
+  background: rgba(14,12,22,0.95);
+  border: 1px solid rgba(255,107,107,0.3);
+  color: #fff;
+  font-size: 0.78rem;
+  padding: 7px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(6px) scale(0.9);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  z-index: 8001;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.ls-tooltip.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Error message */
+.ls-error-msg {
+  font-size: 0.8rem;
+  color: #ff6b6b;
+  text-align: center;
+  margin-top: 8px;
+  height: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.ls-error-msg.visible { opacity: 1; pointer-events: auto; }
+
+/* Valid state glow */
+.auth-submit.ls-valid {
+  box-shadow:
+    0 0 0 2px rgba(78,205,196,0.5),
+    0 0 22px 5px rgba(78,205,196,0.3),
+    0 4px 20px rgba(0,0,0,0.3);
+  animation: lsValidPulse 2.2s ease-in-out infinite;
+}
+@keyframes lsValidPulse {
+  0%,100%{ box-shadow: 0 0 0 2px rgba(78,205,196,0.5), 0 0 22px 5px rgba(78,205,196,0.28), 0 4px 20px rgba(0,0,0,.3); }
+  50%    { box-shadow: 0 0 0 4px rgba(78,205,196,0.25),0 0 35px 10px rgba(78,205,196,0.4), 0 4px 20px rgba(0,0,0,.3); }
+}
+
+/* Focus glow on inputs */
+.auth-field:focus-within {
+  box-shadow: 0 0 0 2px rgba(78,205,196,0.35);
+  border-radius: 12px;
+  transition: box-shadow 0.2s ease;
+}
+
+/* Rope click ripple */
+.ls-ripple {
+  position: fixed;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: rgba(255,220,80,0.7);
+  transform: scale(0);
+  animation: lsRipple 0.6s ease-out forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+@keyframes lsRipple {
+  to { transform: scale(18); opacity: 0; }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  #ls-shade {
+    border-left-width: 48px;
+    border-right-width: 48px;
+    border-bottom-width: 60px;
+  }
+  #ls-cone {
+    border-left-width: 160px;
+    border-right-width: 160px;
+  }
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plan your travel budget — set days and budget to get a smart cost breakdown for your trip.">
+  <title>Budget Planner — TravelPlanner</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/budget.css">
+</head>
+<body>
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo"><div class="nav-logo-icon">✈️</div><div class="nav-logo-text"><span>Travel</span>Planner</div></a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html">Home</a><a href="destinations.html">Destinations</a><a href="budget.html" class="active">Budget</a>
+        <a href="chat.html">AI Chat</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+        <a href="preferences.html">Preferences</a><a href="budget.html" class="nav-cta">Plan Trip →</a>
+      </div>
+      <div class="nav-hamburger" id="nav-hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="page-hero" style="min-height: 35vh;">
+    <div class="page-hero-content">
+      <h1>💰 <span class="gradient-text">Budget Planner</span></h1>
+      <p>Set your budget and days to get a smart breakdown of your travel expenses.</p>
+    </div>
+  </section>
+
+  <!-- Budget Section -->
+  <section class="budget-section">
+    <div class="container">
+      <div class="budget-layout">
+        <!-- Left: Form -->
+        <div class="budget-form-panel glass-panel reveal">
+          <h3>Trip Details</h3>
+          <p>Configure your trip parameters below.</p>
+
+          <!-- Selected Destination -->
+          <div class="selected-dest">
+            <span class="dest-emoji" id="selected-dest-emoji">📍</span>
+            <div class="dest-info">
+              <h4 id="selected-dest-name">Not Selected</h4>
+              <span>Selected Destination</span>
+            </div>
+            <span class="change-btn">Change →</span>
+          </div>
+
+          <!-- Days Slider -->
+          <div class="slider-group">
+            <div class="slider-header">
+              <label for="days-slider">Number of Days</label>
+              <span class="slider-value" id="days-value">3</span>
+            </div>
+            <input type="range" id="days-slider" min="1" max="15" value="3">
+          </div>
+
+          <!-- Budget Input -->
+          <div class="form-group">
+            <label class="form-label" for="budget-input">Total Budget (₹)</label>
+            <div class="budget-input-group">
+              <span class="currency-symbol">₹</span>
+              <input type="number" id="budget-input" class="form-input" placeholder="Enter your budget" value="15000">
+            </div>
+          </div>
+
+          <!-- Per Day Stats -->
+          <div class="per-day-stats">
+            <div class="per-day-card">
+              <h4>Per Day Budget</h4>
+              <p id="per-day-amount">₹5,000</p>
+            </div>
+            <div class="per-day-card">
+              <h4>Total Budget</h4>
+              <p id="total-amount">₹15,000</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Results -->
+        <div class="budget-results glass-panel reveal">
+          <h3>Cost Breakdown</h3>
+
+          <!-- Donut Chart -->
+          <div class="donut-container">
+            <div class="donut-chart" id="donut-chart">
+              <div class="donut-center">
+                <span class="amount" id="donut-total">₹15,000</span>
+                <span class="label">Total</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Breakdown List -->
+          <ul class="breakdown-list" id="breakdown-list">
+            <!-- Filled by JS -->
+          </ul>
+
+          <!-- CTA -->
+          <div class="budget-cta">
+            <button class="btn btn-primary" id="get-ai-btn">Get AI Recommendations 🤖</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><h3>✈️ <span>Travel</span>Planner</h3><p>Your intelligent travel companion.</p><div class="footer-socials"><a href="#">🐦</a><a href="#">📸</a><a href="#">💻</a></div></div>
+        <div class="footer-column"><h4>Destinations</h4><a href="goa.html">Goa</a><a href="manali.html">Manali</a><a href="jaipur.html">Jaipur</a><a href="kerala.html">Kerala</a></div>
+        <div class="footer-column"><h4>Features</h4><a href="budget.html">Budget Planner</a><a href="chat.html">AI Chat</a><a href="preferences.html">Preferences</a></div>
+        <div class="footer-column"><h4>Company</h4><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 TravelPlanner</span><span>HTML • CSS • JS</span></div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/budget.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Backend dependencies
+node_modules/
+
+# Environment variables — NEVER commit these
+.env
+
+# Runtime data files (use a database in production)
+users.json
+trips.json
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+*.log

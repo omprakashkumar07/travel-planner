@@ -1,0 +1,11 @@
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Backend — this directory is deployed separately to Render
+# (included here so the frontend repo is clean)
+backend/node_modules/
+backend/.env
+backend/users.json
+backend/trips.json

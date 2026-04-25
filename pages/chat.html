@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Chat with our AI Travel Assistant for personalized trip recommendations and itineraries.">
+  <title>AI Chat — TravelPlanner</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/chat.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo"><div class="nav-logo-icon">✈️</div><div class="nav-logo-text"><span>Travel</span>Planner</div></a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html">Home</a><a href="destinations.html">Destinations</a><a href="budget.html">Budget</a>
+        <a href="chat.html" class="active">AI Chat</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+        <a href="preferences.html">Preferences</a><a href="budget.html" class="nav-cta">Plan Trip →</a>
+      </div>
+      <div class="nav-hamburger" id="nav-hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <!-- Chat Page -->
+  <div class="chat-page">
+    <!-- Chat Header -->
+    <div class="chat-header">
+      <div class="chat-avatar">🤖</div>
+      <div class="chat-header-info">
+        <h3>Trip Advisor</h3>
+        <span><span class="online-dot"></span> Online</span>
+      </div>
+      <div class="chat-context" id="chat-context">📍 Loading...</div>
+    </div>
+
+    <!-- Messages -->
+    <div class="chat-messages" id="chat-messages">
+      <!-- Messages added by JS -->
+    </div>
+
+    <!-- Input -->
+    <div class="chat-input-area">
+      <div class="chat-input-wrapper">
+        <input type="text" id="chat-input" placeholder="Type your question here..." autocomplete="off">
+        <button class="chat-send-btn" id="chat-send">➤</button>
+      </div>
+      <div class="quick-actions">
+        <button class="quick-action-btn">🍽️ Where should I eat?</button>
+        <button class="quick-action-btn">💰 How much will this cost?</button>
+        <button class="quick-action-btn">📸 Must-see spots</button>
+        <button class="quick-action-btn">💡 Any local tips?</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/chat.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your TravelPlanner profile — view your trip history, preferences, and account details.">
+  <title>Profile — TravelPlanner</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/profile.css">
+  <!-- Leaflet CSS for Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+</head>
+<body>
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo"><div class="nav-logo-icon">✈️</div><div class="nav-logo-text"><span>Travel</span>Planner</div></a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html">Home</a><a href="destinations.html">Destinations</a><a href="budget.html">Budget</a>
+        <a href="chat.html">AI Chat</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+        <a href="preferences.html">Preferences</a><a href="profile.html" class="nav-cta active">Profile 👤</a>
+      </div>
+      <div class="nav-hamburger" id="nav-hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="page-hero" style="min-height: 30vh;">
+    <div class="page-hero-content">
+      <h1 id="hero-greeting-container"><span class="gradient-text" id="hero-profile-name">Your Profile</span></h1>
+      <p id="hero-quote">View your trips, preferences, and account settings.</p>
+    </div>
+  </section>
+
+  <!-- Profile Section -->
+  <section class="profile-section">
+    <div class="container">
+      <div class="profile-layout">
+
+        <!-- Left: User Card -->
+        <div class="profile-card glass-panel reveal">
+          <div class="profile-avatar">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80" alt="Travel Avatar">
+            <div class="profile-avatar-badge">✓</div>
+          </div>
+          <h2 id="profile-name">Guest User</h2>
+          <p class="profile-email" id="profile-email">Sign in to save profile</p>
+
+          <div class="profile-stats-mini">
+            <div class="profile-stat-mini">
+              <h4 id="trip-count">0</h4>
+              <p>Trips</p>
+            </div>
+            <div class="profile-stat-mini">
+              <h4 id="dest-count">0</h4>
+              <p>Places</p>
+            </div>
+            <div class="profile-stat-mini">
+              <h4 id="total-spend-count">₹0</h4>
+              <p>Budget</p>
+            </div>
+          </div>
+
+          <div class="profile-actions">
+            <a href="preferences.html" class="btn btn-outline">⚙️ Edit Preferences</a>
+            <button class="btn btn-outline" id="logout-btn" style="color: var(--accent-coral); border-color: rgba(255,107,107,0.2);">🚪 Log Out</button>
+          </div>
+        </div>
+
+        <!-- Right: Content Panels -->
+        <div class="profile-content">
+
+          <!-- Saved Preferences -->
+          <div class="profile-panel glass-panel reveal">
+            <h3>✨ Your Preferences</h3>
+            <div class="pref-display" id="pref-chips">
+              <!-- Filled by JS -->
+            </div>
+          </div>
+
+          <!-- Interactive Travel Map -->
+          <div class="profile-panel glass-panel reveal" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+            <h3 style="padding: 24px 24px 0;">🌍 Your Travel Map</h3>
+            <div id="dashboard-map" style="height: 350px; width: 100%; margin-top: 16px; z-index: 1;"></div>
+          </div>
+
+          <!-- Saved AI Itinerary -->
+          <div class="profile-panel glass-panel reveal">
+            <h3>🤖 Saved AI Itinerary</h3>
+            <div id="saved-itinerary-container" style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: var(--radius-md); margin-top: 16px; max-height: 400px; overflow-y: auto;">
+              <!-- Filled by JS -->
+            </div>
+          </div>
+
+          <!-- Trip History -->
+          <div class="profile-panel glass-panel reveal">
+            <h3>🗺️ Trip History</h3>
+            <div class="trip-history-list" id="trip-history">
+              <!-- Filled by JS -->
+            </div>
+          </div>
+
+          <!-- Edit Profile -->
+          <div class="profile-panel glass-panel reveal">
+            <h3>✏️ Edit Profile</h3>
+            <form class="edit-form" id="edit-profile-form">
+              <div class="form-group">
+                <label class="form-label" for="edit-name">Full Name</label>
+                <input type="text" id="edit-name" class="form-input" placeholder="Your name" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="edit-email">Email</label>
+                <input type="email" id="edit-email" class="form-input" placeholder="your@email.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="edit-phone">Phone</label>
+                <input type="tel" id="edit-phone" class="form-input" placeholder="+91 98765 43210">
+              </div>
+              <div class="form-group full">
+                <label class="form-label" for="edit-bio">Bio</label>
+                <textarea id="edit-bio" class="form-input" placeholder="Tell us about your travel style..." style="min-height: 80px;"></textarea>
+              </div>
+              <div class="form-group full">
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Save Changes ✓</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><h3>✈️ <span>Travel</span>Planner</h3><p>Your intelligent travel companion.</p><div class="footer-socials"><a href="#">🐦</a><a href="#">📸</a><a href="#">💻</a></div></div>
+        <div class="footer-column"><h4>Destinations</h4><a href="goa.html">Goa</a><a href="manali.html">Manali</a><a href="jaipur.html">Jaipur</a><a href="kerala.html">Kerala</a></div>
+        <div class="footer-column"><h4>Features</h4><a href="budget.html">Budget Planner</a><a href="chat.html">AI Chat</a><a href="preferences.html">Preferences</a></div>
+        <div class="footer-column"><h4>Company</h4><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 TravelPlanner</span><span>HTML • CSS • JS</span></div>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  
+  <script src="../js/main.js"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/profile.js"></script>
+</body>
+</html>

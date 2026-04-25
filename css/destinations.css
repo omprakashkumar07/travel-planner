@@ -1,0 +1,85 @@
+/* ═══════════════════════════════════════════════
+   DESTINATIONS PAGE + CITY PAGES
+   ═══════════════════════════════════════════════ */
+
+.dest-section { padding: 80px 0 var(--section-padding); position: relative; z-index: 1; }
+
+.dest-search-bar { max-width: 500px; margin: 0 auto 50px; position: relative; }
+.dest-search-bar input {
+  width: 100%; padding: 16px 24px 16px 50px;
+  background: var(--bg-glass); border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full); color: var(--text-primary);
+  font-size: 1rem; backdrop-filter: blur(10px); transition: all var(--transition-normal);
+}
+.dest-search-bar input:focus { border-color: var(--accent-coral); box-shadow: 0 0 0 3px rgba(255,107,107,0.1); }
+.dest-search-bar .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); font-size: 1.1rem; color: var(--text-muted); }
+
+.dest-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+
+.dest-card { border-radius: var(--radius-lg); overflow: hidden; cursor: pointer; position: relative; }
+.dest-card-img { height: 240px; overflow: hidden; position: relative; }
+.dest-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.dest-card:hover .dest-card-img img { transform: scale(1.12); }
+.dest-card-price { position: absolute; top: 16px; right: 16px; padding: 6px 14px; background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 600; color: var(--accent-coral); }
+.dest-card-body { padding: 24px; }
+.dest-card-body h3 { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 600; margin-bottom: 6px; }
+.dest-card-location { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; }
+.dest-card-body p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 18px; }
+.dest-card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.dest-tag { padding: 4px 12px; background: rgba(255,107,107,0.1); border: 1px solid rgba(255,107,107,0.15); border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 500; color: var(--accent-coral); }
+.dest-card-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.9rem; font-weight: 600; color: var(--accent-coral); transition: all var(--transition-fast); }
+.dest-card-link:hover { gap: 10px; color: var(--accent-amber); }
+
+/* ── City Page ── */
+.city-hero { min-height: 65vh; display: flex; align-items: flex-end; position: relative; padding: 0 0 60px; }
+.city-hero-bg { position: absolute; inset: 0; z-index: 0; }
+.city-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.city-hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.95) 85%, var(--bg-primary) 100%); z-index: 1; }
+.city-hero-content { position: relative; z-index: 2; width: 100%; }
+.city-hero-content h1 { font-family: var(--font-heading); font-size: 4rem; font-weight: 800; margin-bottom: 12px; animation: fadeInUp 0.8s ease; }
+.city-hero-content .city-tagline { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 24px; animation: fadeInUp 0.8s ease 0.2s both; }
+.city-hero-content .city-rating { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--bg-glass); border-radius: var(--radius-full); font-size: 0.9rem; animation: fadeInUp 0.8s ease 0.3s both; }
+.city-rating .stars { color: var(--accent-amber); }
+
+.city-facts { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; padding: 40px 0; position: relative; z-index: 1; }
+.fact-card { padding: 28px; text-align: center; }
+.fact-card .fact-icon { font-size: 2rem; margin-bottom: 12px; display: block; }
+.fact-card h4 { font-size: 0.8rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.fact-card p { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; }
+
+.city-highlights { padding: 60px 0; position: relative; z-index: 1; }
+.highlights-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.highlight-card { padding: 32px; }
+.highlight-card .highlight-emoji { font-size: 2.5rem; margin-bottom: 16px; display: block; }
+.highlight-card h3 { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 600; margin-bottom: 10px; }
+.highlight-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+
+.city-cta { padding: 80px 0; position: relative; z-index: 1; }
+.city-cta-card { padding: 60px; background: linear-gradient(135deg, rgba(255,107,107,0.08), rgba(78,205,196,0.05)); border: 1px solid rgba(255,107,107,0.15); border-radius: var(--radius-xl); text-align: center; }
+.city-cta-card h2 { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 700; margin-bottom: 12px; }
+.city-cta-card p { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 28px; max-width: 450px; margin-left: auto; margin-right: auto; }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .dest-grid { grid-template-columns: repeat(2,1fr); }
+  .city-facts { grid-template-columns: repeat(2,1fr); }
+  .highlights-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 768px) {
+  .dest-grid { grid-template-columns: 1fr; }
+  .city-hero-content h1 { font-size: 2.5rem; }
+  .city-facts { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .highlights-grid { grid-template-columns: 1fr; }
+  .city-cta-card { padding: 40px 24px; }
+  .city-cta-card h2 { font-size: 1.6rem; }
+}
+
+/* ── Safety net: cards are always visible ─────────────────────
+   The stagger-children animation is a progressive enhancement.
+   If the IntersectionObserver hasn't fired yet (or JS is slow),
+   cards must still be readable — never hidden below the fold. */
+.dest-grid .dest-card {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}

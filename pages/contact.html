@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get in touch with TravelPlanner — We'd love to hear from you.">
+  <title>Contact — TravelPlanner</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo"><div class="nav-logo-icon">✈️</div><div class="nav-logo-text"><span>Travel</span>Planner</div></a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html">Home</a><a href="destinations.html">Destinations</a><a href="budget.html">Budget</a>
+        <a href="chat.html">AI Chat</a><a href="about.html">About</a><a href="contact.html" class="active">Contact</a>
+        <a href="preferences.html">Preferences</a><a href="budget.html" class="nav-cta">Plan Trip →</a>
+      </div>
+      <div class="nav-hamburger" id="nav-hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="page-hero" style="min-height: 35vh;">
+    <div class="page-hero-content">
+      <h1>📬 <span class="gradient-text">Contact Us</span></h1>
+      <p>Have questions, feedback, or partnership ideas? We'd love to hear from you.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-layout">
+        <!-- Form -->
+        <div class="contact-form-panel glass-panel reveal">
+          <h3>Send a Message</h3>
+          <p>Fill out the form and we'll get back to you within 24 hours.</p>
+          <form id="contact-form" onsubmit="event.preventDefault(); showToast('Message sent successfully! We\'ll get back to you soon.'); this.reset();">
+            <div class="form-group">
+              <label class="form-label" for="contact-name">Your Name</label>
+              <input type="text" id="contact-name" class="form-input" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" class="form-input" placeholder="john@example.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contact-subject">Subject</label>
+              <input type="text" id="contact-subject" class="form-input" placeholder="How can we help?">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contact-message">Message</label>
+              <textarea id="contact-message" class="form-input" placeholder="Tell us more..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message ✉️</button>
+          </form>
+        </div>
+
+        <!-- Info -->
+        <div class="contact-info-panel glass-panel reveal">
+          <h3>Get in Touch</h3>
+          <div class="contact-item">
+            <div class="contact-item-icon">📧</div>
+            <div>
+              <h4>Email</h4>
+              <p>hello@TravelPlanner.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📱</div>
+            <div>
+              <h4>Phone</h4>
+              <p>+91 98765 43210</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div>
+              <h4>Address</h4>
+              <p>Lovely Professional University, Phagwara, Punjab, India</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🕐</div>
+            <div>
+              <h4>Working Hours</h4>
+              <p>Mon — Fri, 9:00 AM — 6:00 PM IST</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-title reveal">
+        <div class="section-badge">❓ FAQ</div>
+        <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+      </div>
+      <div style="max-width: 700px; margin: 0 auto;">
+        <div class="faq-item">
+          <div class="faq-question"><span>Is TravelPlanner free to use?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer"><p>Yes! TravelPlanner is completely free. You can explore destinations, plan budgets, and chat with our AI assistant at no cost.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question"><span>How accurate are the budget estimates?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer"><p>Our budget estimates are based on real traveler data and are regularly updated. They provide a good baseline, though actual costs may vary by season and personal preferences.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question"><span>Can I save my travel plans?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer"><p>Yes! Your selected destination, budget, and preferences are saved locally in your browser. You can revisit the budget planner or chat anytime to continue planning.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question"><span>Do you cover international destinations?</span><span class="faq-icon">+</span></div>
+          <div class="faq-answer"><p>Currently, TravelPlanner focuses on India's top destinations. We're working on adding international locations — stay tuned!</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><h3>✈️ <span>Travel</span>Planner</h3><p>Your intelligent travel companion.</p><div class="footer-socials"><a href="#">🐦</a><a href="#">📸</a><a href="#">💻</a></div></div>
+        <div class="footer-column"><h4>Destinations</h4><a href="goa.html">Goa</a><a href="manali.html">Manali</a><a href="jaipur.html">Jaipur</a><a href="kerala.html">Kerala</a></div>
+        <div class="footer-column"><h4>Features</h4><a href="budget.html">Budget Planner</a><a href="chat.html">AI Chat</a><a href="preferences.html">Preferences</a></div>
+        <div class="footer-column"><h4>Company</h4><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 TravelPlanner</span><span>HTML • CSS • JS</span></div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/preferences.js"></script>
+</body>
+</html>

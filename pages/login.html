@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in or create an account to start planning your perfect trip with TravelPlanner.">
+  <title>Login — TravelPlanner</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/auth.css">
+  <link rel="stylesheet" href="../css/auth-lamp.css">
+</head>
+<body>
+
+  <!-- Animated Gradient Mesh Background -->
+  <div class="auth-bg-mesh">
+    <div class="mesh-blob mesh-blob-1"></div>
+    <div class="mesh-blob mesh-blob-2"></div>
+    <div class="mesh-blob mesh-blob-3"></div>
+    <div class="mesh-blob mesh-blob-4"></div>
+  </div>
+
+  <!-- Floating Travel Icons -->
+  <div class="floating-icons">
+    <span class="float-icon">✈️</span>
+    <span class="float-icon">🏖️</span>
+    <span class="float-icon">🏔️</span>
+    <span class="float-icon">🗺️</span>
+    <span class="float-icon">🧳</span>
+    <span class="float-icon">🌴</span>
+    <span class="float-icon">🏰</span>
+    <span class="float-icon">⛵</span>
+    <span class="float-icon">🎒</span>
+    <span class="float-icon">🌅</span>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo">
+        <div class="nav-logo-icon">✈️</div>
+        <div class="nav-logo-text"><span>Travel</span>Planner</div>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="budget.html">Budget</a>
+        <a href="chat.html">AI Chat</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="preferences.html">Preferences</a>
+        <a href="login.html" class="nav-cta active">Login ✨</a>
+      </div>
+      <div class="nav-hamburger" id="nav-hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <!-- Auth Container -->
+  <div class="auth-page">
+    <div class="auth-container" id="auth-container">
+      <div class="auth-flipper">
+
+        <!-- ═══ LOGIN CARD (Front) ═══ -->
+        <div class="auth-card auth-card-login">
+          <div class="auth-header">
+            <div class="auth-logo">✈️</div>
+            <h2>Welcome back</h2>
+            <p>Pick up right where you left off.</p>
+          </div>
+
+          <form class="auth-form" id="login-form">
+            <div class="auth-field">
+              <span class="auth-field-icon">👤</span>
+              <input type="text" id="login-email" placeholder="Email or Mobile Number" autocomplete="username" required>
+            </div>
+
+            <div class="auth-field">
+              <span class="auth-field-icon">🔒</span>
+              <input type="password" id="login-password" placeholder="Password" autocomplete="current-password" required>
+              <span class="password-toggle">👁️</span>
+            </div>
+
+            <div class="auth-options">
+              <label class="remember-me">
+                <input type="checkbox" checked> Remember me
+              </label>
+              <a href="#" class="forgot-link">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="auth-submit">Log in</button>
+
+            <div class="auth-switch" style="margin-top: 24px;">
+              New here? <a id="to-signup">Create an account</a>
+            </div>
+          </form>
+        </div>
+
+        <!-- ═══ SIGNUP CARD (Back) ═══ -->
+        <div class="auth-card auth-card-signup">
+          <div class="auth-header">
+            <div class="auth-logo">🌍</div>
+            <h2>Create an account</h2>
+            <p>Save your itineraries and travel preferences.</p>
+          </div>
+
+          <form class="auth-form" id="signup-form">
+            <div class="auth-field">
+              <span class="auth-field-icon">👤</span>
+              <input type="text" id="signup-name" placeholder="Full name" autocomplete="name" required>
+            </div>
+
+            <div class="auth-field">
+              <span class="auth-field-icon">📧</span>
+              <input type="email" id="signup-email" placeholder="Email address" autocomplete="email" required>
+            </div>
+
+            <div class="auth-field">
+              <span class="auth-field-icon">📱</span>
+              <input type="tel" id="signup-mobile" placeholder="Mobile number (10 digits)" pattern="\d{10}" maxlength="10" autocomplete="tel" required>
+            </div>
+
+            <div class="auth-field">
+              <span class="auth-field-icon">🔒</span>
+              <input type="password" id="signup-password" placeholder="Create password" autocomplete="new-password" required>
+              <span class="password-toggle">👁️</span>
+            </div>
+
+            <div class="auth-field">
+              <span class="auth-field-icon">🔐</span>
+              <input type="password" id="signup-confirm" placeholder="Confirm password" autocomplete="new-password" required>
+              <span class="password-toggle">👁️</span>
+            </div>
+
+            <!-- Password Strength -->
+            <div class="password-strength">
+              <div class="strength-bar"></div>
+              <div class="strength-bar"></div>
+              <div class="strength-bar"></div>
+              <div class="strength-bar"></div>
+            </div>
+            <div class="strength-label" id="strength-label"></div>
+
+            <button type="submit" class="auth-submit">Sign up</button>
+
+            <div class="auth-switch" style="margin-top: 24px;">
+              Already have an account? <a id="to-login">Log in</a>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Reset Password Overlay -->
+  <div class="reset-overlay" id="reset-overlay">
+    <div class="auth-card" style="position: relative;">
+      <button id="close-reset" class="close-btn">&times;</button>
+      <div class="auth-header">
+        <div class="auth-logo">🔑</div>
+        <h2>Reset Password</h2>
+        <p>Enter your details to create a new password.</p>
+      </div>
+      <form class="auth-form" id="reset-form">
+        <div class="auth-field">
+          <span class="auth-field-icon">👤</span>
+          <input type="text" id="reset-identifier" placeholder="Email or Mobile Number" required>
+        </div>
+        <div class="auth-field">
+          <span class="auth-field-icon">🔒</span>
+          <input type="password" id="reset-password" placeholder="New Password" required>
+          <span class="password-toggle">👁️</span>
+        </div>
+        <button type="submit" class="auth-submit">Update Password</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Success Overlay -->
+  <div class="success-overlay" id="success-overlay">
+    <div class="success-checkmark">✓</div>
+    <h2 id="success-message">Welcome!</h2>
+    <p>Redirecting to your dashboard...</p>
+  </div>
+
+  <!-- Confetti Container -->
+  <div class="confetti-container" id="confetti-container"></div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/auth-lamp.js"></script>
+  <script src="../js/auth.js"></script>
+  <script>
+    // Social login handler (demo)
+    function handleSocialLogin(provider) {
+      localStorage.setItem('TravelPlanner_user', JSON.stringify({ name: provider + ' User', email: provider.toLowerCase() + '@demo.com' }));
+      const overlay = document.getElementById('success-overlay');
+      const msg = document.getElementById('success-message');
+      if (msg) msg.textContent = 'Signed in with ' + provider + '!';
+      overlay.classList.add('show');
+      launchConfetti();
+      setTimeout(() => { window.location.href = '../index.html'; }, 2800);
+    }
+  </script>
+</body>
+</html>
