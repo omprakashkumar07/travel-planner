@@ -40,14 +40,11 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// ── Serve Frontend Static Files (local dev only) ──────────────
-// In production (Render) the frontend is hosted on Vercel, so we
-// skip static serving. Locally this lets you open the app at
-// http://localhost:5000 without needing a separate dev server.
-if (process.env.NODE_ENV !== 'production') {
-  const FRONTEND_DIR = path.join(__dirname, '..');
-  app.use(express.static(FRONTEND_DIR));
-}
+// ── Serve Frontend Static Files ──────────────────────────────
+// The frontend (index.html, pages/, css/, js/) lives one level
+// above this backend folder.
+const FRONTEND_DIR = path.join(__dirname, '..');
+app.use(express.static(FRONTEND_DIR));
 
 // ── Health Check ─────────────────────────────────────────────
 app.get('/health', (req, res) => {
