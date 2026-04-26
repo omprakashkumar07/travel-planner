@@ -18,12 +18,12 @@ const PORT = process.env.PORT || 5000;
 // CORS — only allow requests from the configured frontend origin.
 // In production this is set to the Netlify URL via the FRONTEND_URL env var.
 const allowedOrigins = [
-  process.env.FRONTEND_URL,          // e.g. https://your-app.netlify.app
-  'http://localhost:5000',           // Express static serve (same port)
-  'http://127.0.0.1:5000',          // Express static serve (alt)
-  'http://localhost:3000',           // local React/Vite dev server (if used)
-  'http://127.0.0.1:5500',          // VS Code Live Server
-  'http://localhost:5500',          // VS Code Live Server alt
+  process.env.FRONTEND_URL,          // e.g. https://travel-planner.vercel.app
+  'http://localhost:5000',           // local (same port)
+  'http://127.0.0.1:5000',
+  'http://localhost:3000',
+  'http://127.0.0.1:5500',
+  'http://localhost:5500',
   'null',                            // file:// origin (opening HTML directly)
 ].filter(Boolean);
 
@@ -39,12 +39,6 @@ app.use(cors({
   credentials: true
 }));
 app.use(express.json());
-
-// ── Serve Frontend Static Files ──────────────────────────────
-// The frontend (index.html, pages/, css/, js/) lives one level
-// above this backend folder, so we serve it from the parent dir.
-const FRONTEND_DIR = path.join(__dirname, '..');
-app.use(express.static(FRONTEND_DIR));
 
 // ── Health Check ─────────────────────────────────────────────
 app.get('/health', (req, res) => {

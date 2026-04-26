@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: travel-planner-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: GEMINI_API_KEY
+        sync: false       # set manually in Render dashboard
+      - key: JWT_SECRET
+        sync: false       # set manually in Render dashboard
+      - key: FRONTEND_URL
+        sync: false       # set to your Vercel URL after deployment
